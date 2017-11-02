@@ -1,0 +1,9 @@
+h1{
+    background-color: indigo;
+    color:white;
+    padding: 50px;
+}
+#back{
+    background-color: LightGrey;
+    border:1px solid black;
+}

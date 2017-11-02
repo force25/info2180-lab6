@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html>
 <body>
-
+<h1>Web Dictionary</h1>
+<p>Lookup the definition of a word(e.g ajax, html, javascript, php, css or bar)</p>
+<input type="text" id="word">
 <button onclick="search()">SEARCH</button>
-<div> id="result"</div>
+<hr></hr>
+<div  id="result"></div></div>
 <script type="text/javascript">
 
+var definition = document.getElementById("word");
 function search(){
      var http = new XMLHttpRequest();
        http.onreadystatechange = function() {
       if (http.readyState === XMLHttpRequest.DONE && http.status === 200) {
-      alert(http.responseText);
+      document.getElementById("result").innerHTML="<h3>Result</h3>"+http.responseText;
         }
     };
-     http.open("GET", "request.php?q=definition");
+     http.open("GET", "request.php?q="+definition.value,true);
      http.send();
 }
 

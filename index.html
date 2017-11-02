@@ -7,11 +7,11 @@
 <p> Lookup the definition of a word(e.g ajax, html, javascript, php, css or bar)</p>
 <input type="text" id="word">
 <button onclick="search()">SEARCH</button>
+<button onclick="search2()">Get All Definitions</button>
 <hr></hr>
 <div  id="result"></div>
 </div>
 <script type="text/javascript">
-
 var definition = document.getElementById("word");
 function search(){
      var http = new XMLHttpRequest();
@@ -24,6 +24,16 @@ function search(){
      http.send();
 }
 
+function search2(){
+     var http = new XMLHttpRequest();
+       http.onreadystatechange = function() {
+      if (http.readyState === XMLHttpRequest.DONE && http.status === 200) {
+      document.getElementById("result").innerHTML="<h3>Result</h3>"+http.responseXML;
+        }
+    };
+     http.open("GET", "request.php?q=all", true);
+     http.send();
+}
 </script>
 </body>
 </html>

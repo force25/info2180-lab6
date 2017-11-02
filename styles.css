@@ -7,3 +7,7 @@ h1{
     background-color: LightGrey;
     border:1px solid black;
 }
+button{
+    background-color: blue;
+    color: white;
+}
